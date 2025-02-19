@@ -1,3 +1,5 @@
+console.log("DISCORD_TOKEN:", process.env.DISCORD_TOKEN);
+console.log("CHANNEL_ID:", process.env.CHANNEL_ID);
 const { Client, GatewayIntentBits } = require('discord.js');
 const puppeteer = require('puppeteer');
 require('dotenv').config();
