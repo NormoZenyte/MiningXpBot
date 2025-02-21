@@ -1,6 +1,9 @@
 require('dotenv').config();
+console.log("DISCORD_TOKEN:", process.env.DISCORD_TOKEN);
+console.log("CHANNEL_ID:", process.env.CHANNEL_ID);
 const { Client, GatewayIntentBits } = require('discord.js');
 const puppeteer = require('puppeteer');
+require('dotenv').config();
 
 const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
 const CHANNEL_ID = process.env.CHANNEL_ID;
@@ -15,11 +18,11 @@ if (!DISCORD_TOKEN || !CHANNEL_ID) {
 const players = {
   "Hunhae": {
     url: "https://2004.lostcity.rs/hiscores/player/hunhae",
-    xp: 3945810
+    xp: 0
   },
-  "Normo": {
-    url: "https://2004.lostcity.rs/hiscores/player/normo",
-    xp: 65125
+  "Levinite": {
+    url: "https://2004.lostcity.rs/hiscores/player/levinite",
+    xp: 0
   }
 };
 
@@ -96,7 +99,7 @@ async function checkPlayers() {
           }
           // Send the normal message
           await channel.send(`⚒️ **${playerName}** has gained Mining XP! New XP: ${currentXP} (Gained: ${xpGained})`);
-          
+
           // If the amount of XP gained is divisible by 125, send the extra message with role mention.
           if (xpGained % 125 === 0) {
             await channel.send(`⚠️ **${playerName}** is possibly mining runite ore! <@&${RUNITE_ROLE_ID}>`);
